@@ -1,8 +1,8 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Console\Commands;
+namespace SynergiTech\Multiconfig\Console\Commands;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Setting;
+use SynergiTech\Multiconfig\Eloquent\Setting;
 use Illuminate\Console\Command;
 
 /**

@@ -1,9 +1,9 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Migrator\Pipes;
+namespace SynergiTech\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use DarkGhostHunter\Laraconfig\Migrator\Data;
+use SynergiTech\Multiconfig\Migrator\Data;
 use Illuminate\Console\OutputStyle;
 use RuntimeException;
 
@@ -16,7 +16,7 @@ class EnsureSomethingToMigrate
     /**
      * Handles the Settings migration.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Migrator\Data  $data
+     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed

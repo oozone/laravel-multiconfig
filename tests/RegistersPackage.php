@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use DarkGhostHunter\Laraconfig\LaraconfigServiceProvider;
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\MulticonfigServiceProvider;
+use SynergiTech\Multiconfig\Facades\Setting;
 
 trait RegistersPackage
 {
@@ -17,7 +17,7 @@ trait RegistersPackage
     protected function getPackageProviders($app): array
     {
         return [
-            LaraconfigServiceProvider::class,
+            MulticonfigServiceProvider::class,
         ];
     }
 

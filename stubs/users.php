@@ -1,5 +1,5 @@
 <?php
 
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Facades\Setting;
 
 Setting::name('dark_mode')->boolean();

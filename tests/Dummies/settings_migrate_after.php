@@ -1,7 +1,7 @@
 <?php
 
-use DarkGhostHunter\Laraconfig\Eloquent\Setting as Model;
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Eloquent\Setting as Model;
+use SynergiTech\Multiconfig\Facades\Setting;
 use Illuminate\Support\Arr;
 
 Setting::name('foo')->default('new_default');

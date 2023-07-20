@@ -1,13 +1,13 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Facades;
+namespace SynergiTech\Multiconfig\Facades;
 
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
+use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Illuminate\Support\Collection|\DarkGhostHunter\Laraconfig\Eloquent\Setting[] getSettings()
- * @method static \DarkGhostHunter\Laraconfig\Registrar\Declaration name(string $name)
+ * @method static \Illuminate\Support\Collection|\SynergiTech\Multiconfig\Eloquent\Setting[] getSettings()
+ * @method static \SynergiTech\Multiconfig\Registrar\Declaration name(string $name)
  */
 class Setting extends Facade
 {

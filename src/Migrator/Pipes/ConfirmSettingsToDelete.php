@@ -1,10 +1,10 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Migrator\Pipes;
+namespace SynergiTech\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
-use DarkGhostHunter\Laraconfig\Migrator\Data;
+use SynergiTech\Multiconfig\Eloquent\Metadata;
+use SynergiTech\Multiconfig\Migrator\Data;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Foundation\Application;
 use RuntimeException;
@@ -32,7 +32,7 @@ class ConfirmSettingsToDelete
     /**
      * Handles the Settings migration.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Migrator\Data  $data
+     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed
@@ -49,7 +49,7 @@ class ConfirmSettingsToDelete
     /**
      * Returns if there is metadata to delete and the developer has rejected their deletion.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Migrator\Data  $data
+     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
      *
      * @return bool
      */
@@ -67,7 +67,7 @@ class ConfirmSettingsToDelete
     /**
      * Counts metadata no longer listed in the manifest declarations.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Migrator\Data  $data
+     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
      *
      * @return int
      */

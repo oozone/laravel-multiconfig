@@ -1,10 +1,10 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Migrator\Pipes;
+namespace SynergiTech\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use DarkGhostHunter\Laraconfig\Migrator\Data;
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
+use SynergiTech\Multiconfig\Migrator\Data;
+use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
 
 /**
  * @internal
@@ -14,7 +14,7 @@ class LoadDeclarations
     /**
      * LoadDeclarations constructor.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar  $registrar
+     * @param  \SynergiTech\Multiconfig\Registrar\SettingRegistrar  $registrar
      */
     public function __construct(protected SettingRegistrar $registrar)
     {
@@ -23,7 +23,7 @@ class LoadDeclarations
     /**
      * Handles the Settings migration.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Migrator\Data  $data
+     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed

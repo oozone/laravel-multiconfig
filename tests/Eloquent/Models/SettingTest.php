@@ -2,10 +2,10 @@
 
 namespace Tests\Eloquent\Models;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
-use DarkGhostHunter\Laraconfig\Eloquent\Scopes\AddMetadata;
-use DarkGhostHunter\Laraconfig\Eloquent\Setting;
-use DarkGhostHunter\Laraconfig\SettingsCache;
+use SynergiTech\Multiconfig\Eloquent\Metadata;
+use SynergiTech\Multiconfig\Eloquent\Scopes\AddMetadata;
+use SynergiTech\Multiconfig\Eloquent\Setting;
+use SynergiTech\Multiconfig\SettingsCache;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -52,7 +52,7 @@ class SettingTest extends BaseTestCase
 
     public function test_adds_metadata(): void
     {
-        /** @var \DarkGhostHunter\Laraconfig\Eloquent\Setting $setting */
+        /** @var \SynergiTech\Multiconfig\Eloquent\Setting $setting */
         $setting = Setting::make()
             ->setRawAttributes(['value' => 'quz'])
             ->forceFill([
@@ -292,7 +292,7 @@ class SettingTest extends BaseTestCase
         $this->assertDatabaseHas('user_settings', ['id' => 1, 'is_enabled' => true]);
     }
 
-    public function test_set_invalidates_cache_of_laraconfig(): void
+    public function test_set_invalidates_cache_of_multiconfig(): void
     {
         $this->setting->fill(['value' => 'foo'])->save();
 
@@ -310,9 +310,9 @@ class SettingTest extends BaseTestCase
 
     public function test_set_invalidates_cache_manually(): void
     {
-        config()->set('laraconfig.cache.enable', true);
+        config()->set('multiconfig.cache.enable', true);
 
-        cache()->store()->forever('laraconfig|bar|1', 'foo');
+        cache()->store()->forever('multiconfig|bar|1', 'foo');
 
         $this->setting->fill(['value' => 'foo'])->save();
 
@@ -320,7 +320,7 @@ class SettingTest extends BaseTestCase
 
         $setting->set('bar');
 
-        static::assertNull(cache()->store()->get('laraconfig|bar|1'));
+        static::assertNull(cache()->store()->get('multiconfig|bar|1'));
     }
 
     public function test_adds_metadata_on_select_query(): void

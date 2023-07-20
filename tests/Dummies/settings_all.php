@@ -1,6 +1,6 @@
 <?php
 
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Facades\Setting;
 
 Setting::name('array')->array();
 Setting::name('boolean')->boolean();

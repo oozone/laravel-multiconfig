@@ -1,8 +1,8 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig;
+namespace SynergiTech\Multiconfig;
 
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
+use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
 use Generator;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 /**
  * @internal
  */
-class LaraconfigServiceProvider extends ServiceProvider
+class MulticonfigServiceProvider extends ServiceProvider
 {
     /**
      * The migration files.
@@ -31,7 +31,7 @@ class LaraconfigServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/laraconfig.php', 'laraconfig');
+        $this->mergeConfigFrom(__DIR__.'/../config/multiconfig.php', 'multiconfig');
 
         $this->app->singleton(SettingRegistrar::class, static function($app): SettingRegistrar {
             return new SettingRegistrar(
@@ -58,7 +58,7 @@ class LaraconfigServiceProvider extends ServiceProvider
                 Console\Commands\CleanCommand::class,
             ]);
 
-            $this->publishes([__DIR__.'/../config/laraconfig.php' => config_path('laraconfig.php')], 'config');
+            $this->publishes([__DIR__.'/../config/multiconfig.php' => config_path('multiconfig.php')], 'config');
 
             $this->publishes(iterator_to_array($this->migrationPathNames()), 'migrations');
         }

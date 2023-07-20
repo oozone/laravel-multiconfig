@@ -1,6 +1,6 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig;
+namespace SynergiTech\Multiconfig;
 
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Cache\Repository;
@@ -15,7 +15,7 @@ class SettingsCache implements Serializable
     /**
      * The collection of settings to persist.
      *
-     * @var \DarkGhostHunter\Laraconfig\SettingsCollection|null
+     * @var \SynergiTech\Multiconfig\SettingsCollection|null
      */
     protected ?SettingsCollection $settings = null;
 
@@ -45,9 +45,9 @@ class SettingsCache implements Serializable
     /**
      * Set the settings collection to persist.
      *
-     * @param  \DarkGhostHunter\Laraconfig\SettingsCollection  $settings
+     * @param  \SynergiTech\Multiconfig\SettingsCollection  $settings
      *
-     * @return \DarkGhostHunter\Laraconfig\SettingsCache
+     * @return \SynergiTech\Multiconfig\SettingsCache
      */
     public function setSettings(SettingsCollection $settings): static
     {
@@ -135,7 +135,7 @@ class SettingsCache implements Serializable
         // Just a simple trick to regenerate only if it's enabled.
         $this->settings->regeneratesOnExit = $this->automaticRegeneration;
     }
-    
+
     /**
      * representation of object.
      *
@@ -192,14 +192,14 @@ class SettingsCache implements Serializable
     public static function make(Config $config, Factory $factory, Model $model): static
     {
         return new static(
-            $factory->store($config->get('laraconfig.cache.store')),
+            $factory->store($config->get('multiconfig.cache.store')),
             MorphManySettings::generateKeyForModel(
-                $config->get('laraconfig.cache.prefix', 'laraconfig'),
+                $config->get('multiconfig.cache.prefix', 'multiconfig'),
                 $model->getMorphClass(),
                 $model->getKey()
             ),
-            $config->get('laraconfig.cache.ttl', 60 * 60 * 3),
-            $config->get('laraconfig.cache.automatic', true),
+            $config->get('multiconfig.cache.ttl', 60 * 60 * 3),
+            $config->get('multiconfig.cache.automatic', true),
         );
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Tests\Registrar;
 
-use DarkGhostHunter\Laraconfig\Facades\Setting;
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
+use SynergiTech\Multiconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
 use Illuminate\Support\Collection;
 use Tests\BaseTestCase;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig;
+namespace SynergiTech\Multiconfig;
 
 use Illuminate\Database\Eloquent\Model;
 
 use function method_exists;
 
 /**
- * @property-read \DarkGhostHunter\Laraconfig\SettingsCollection<\DarkGhostHunter\Laraconfig\Eloquent\Setting>|\DarkGhostHunter\Laraconfig\Eloquent\Setting[] $settings
+ * @property-read \SynergiTech\Multiconfig\SettingsCollection<\SynergiTech\Multiconfig\Eloquent\Setting>|\SynergiTech\Multiconfig\Eloquent\Setting[] $settings
  *
  * @method \Illuminate\Database\Eloquent\Builder|static whereConfig(string|array $name, string $operator = null, $value = null, string $boolean = 'and')
  * @method \Illuminate\Database\Eloquent\Builder|static orWhereConfig(string|array $name, string $operator = null, $value = null)
@@ -17,7 +17,7 @@ trait HasConfig
     /**
      * Returns the settings relationship.
      *
-     * @return \DarkGhostHunter\Laraconfig\MorphManySettings
+     * @return \SynergiTech\Multiconfig\MorphManySettings
      */
     public function settings(): MorphManySettings
     {

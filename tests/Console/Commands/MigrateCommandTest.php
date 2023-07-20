@@ -2,11 +2,11 @@
 
 namespace Tests\Console\Commands;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
-use DarkGhostHunter\Laraconfig\Eloquent\Setting as SettingModel;
-use DarkGhostHunter\Laraconfig\Facades\Setting;
-use DarkGhostHunter\Laraconfig\Migrator\Data;
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
+use SynergiTech\Multiconfig\Eloquent\Metadata;
+use SynergiTech\Multiconfig\Eloquent\Setting as SettingModel;
+use SynergiTech\Multiconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Migrator\Data;
+use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Database\Eloquent\Model;
@@ -640,7 +640,7 @@ class MigrateCommandTest extends BaseTestCase
 
     public function test_doesnt_regenerates_cache_when_no_changes(): void
     {
-        config()->set('laraconfig.cache.enable', true);
+        config()->set('multiconfig.cache.enable', true);
 
         Metadata::make()->forceFill([
             'name' => 'foo',
@@ -671,12 +671,12 @@ class MigrateCommandTest extends BaseTestCase
 
         $this->resetDeclarations();
 
-        config()->set('laraconfig.cache.enable', true);
-        config()->set('laraconfig.cache.store', 'foo');
+        config()->set('multiconfig.cache.enable', true);
+        config()->set('multiconfig.cache.store', 'foo');
 
         $store = cache()->store();
 
-        $store->forever('laraconfig|Tests\Dummies\DummyModel|1', 'foo');
+        $store->forever('multiconfig|Tests\Dummies\DummyModel|1', 'foo');
 
         /** @var \Mockery\MockInterface $cache */
         $cache = $this->swap(Factory::class, Mockery::mock(Factory::class));
@@ -691,7 +691,7 @@ class MigrateCommandTest extends BaseTestCase
             ->assertExitCode(0)
             ->execute();
 
-        static::assertNull($store->get('laraconfig|Tests\Dummies\DummyModel|1'));
+        static::assertNull($store->get('multiconfig|Tests\Dummies\DummyModel|1'));
     }
 
     public function test_invalidates_cache_when_creates_setting(): void
@@ -704,12 +704,12 @@ class MigrateCommandTest extends BaseTestCase
 
         $this->resetDeclarations();
 
-        config()->set('laraconfig.cache.enable', true);
-        config()->set('laraconfig.cache.store', 'foo');
+        config()->set('multiconfig.cache.enable', true);
+        config()->set('multiconfig.cache.store', 'foo');
 
         $store = cache()->store();
 
-        $store->forever('laraconfig|Tests\Dummies\DummyModel|1', 'foo');
+        $store->forever('multiconfig|Tests\Dummies\DummyModel|1', 'foo');
 
         /** @var \Mockery\MockInterface $cache */
         $cache = $this->swap(Factory::class, Mockery::mock(Factory::class));
@@ -724,7 +724,7 @@ class MigrateCommandTest extends BaseTestCase
             ->assertExitCode(0)
             ->execute();
 
-        static::assertNull($store->get('laraconfig|Tests\Dummies\DummyModel|1'));
+        static::assertNull($store->get('multiconfig|Tests\Dummies\DummyModel|1'));
     }
 
     public function test_invalidates_cache_when_deletes_setting(): void
@@ -737,12 +737,12 @@ class MigrateCommandTest extends BaseTestCase
 
         $this->resetDeclarations();
 
-        config()->set('laraconfig.cache.enable', true);
-        config()->set('laraconfig.cache.store', 'foo');
+        config()->set('multiconfig.cache.enable', true);
+        config()->set('multiconfig.cache.store', 'foo');
 
         $store = cache()->store();
 
-        $store->forever('laraconfig|Tests\Dummies\DummyModel|1', 'foo');
+        $store->forever('multiconfig|Tests\Dummies\DummyModel|1', 'foo');
 
         /** @var \Mockery\MockInterface $cache */
         $cache = $this->swap(Factory::class, Mockery::mock(Factory::class));
@@ -755,13 +755,13 @@ class MigrateCommandTest extends BaseTestCase
             ->assertExitCode(0)
             ->execute();
 
-        static::assertNull($store->get('laraconfig|Tests\Dummies\DummyModel|1'));
+        static::assertNull($store->get('multiconfig|Tests\Dummies\DummyModel|1'));
     }
 
     public function test_flushes_cache(): void
     {
-        config()->set('laraconfig.cache.enable', true);
-        config()->set('laraconfig.cache.store', 'foo');
+        config()->set('multiconfig.cache.enable', true);
+        config()->set('multiconfig.cache.store', 'foo');
 
         Setting::name('foo');
 
@@ -780,7 +780,7 @@ class MigrateCommandTest extends BaseTestCase
 
     public function test_doesnt_flushes_cache_if_not_enabled(): void
     {
-        config()->set('laraconfig.cache.enable', false);
+        config()->set('multiconfig.cache.enable', false);
 
         Setting::name('foo');
 
@@ -789,15 +789,15 @@ class MigrateCommandTest extends BaseTestCase
         $cache->shouldNotReceive('store');
 
         $this->artisan('settings:migrate', ['--flush-cache' => true])
-            ->expectsOutput('Cannot flush cache. Laraconfig cache is not enabled.')
+            ->expectsOutput('Cannot flush cache. Multiconfig cache is not enabled.')
             ->assertExitCode(1)
             ->run();
     }
 
     public function test_confirms_cache_flush_on_production(): void
     {
-        config()->set('laraconfig.cache.enable', true);
-        config()->set('laraconfig.cache.store', 'foo');
+        config()->set('multiconfig.cache.enable', true);
+        config()->set('multiconfig.cache.store', 'foo');
 
         Setting::name('foo');
 

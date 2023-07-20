@@ -1,8 +1,8 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig;
+namespace SynergiTech\Multiconfig;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
+use SynergiTech\Multiconfig\Eloquent\Metadata;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
@@ -12,7 +12,7 @@ use Illuminate\Support\Arr;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Builder
- * @mixin \DarkGhostHunter\Laraconfig\Eloquent\Setting
+ * @mixin \SynergiTech\Multiconfig\Eloquent\Setting
  *
  * @method Model|HasConfig getParent()
  */
@@ -28,7 +28,7 @@ class MorphManySettings extends MorphMany
     /**
      * The settings cache helper.
      *
-     * @var \DarkGhostHunter\Laraconfig\SettingsCache|null
+     * @var \SynergiTech\Multiconfig\SettingsCache|null
      */
     protected ?SettingsCache $cache = null;
 
@@ -62,13 +62,13 @@ class MorphManySettings extends MorphMany
         // We'll enable the cache for the settings only if is enabled in the
         // application config. This object will handle the cache easily and
         // will receive the instruction from the collection to regenerate.
-        if ($config->get('laraconfig.cache.enable', false)) {
+        if ($config->get('multiconfig.cache.enable', false)) {
             $this->cache = SettingsCache::make($config, app(Factory::class), $parent);
         }
 
         // And filter the bags if the model has stated them.
         $this->bags = Arr::wrap(
-            method_exists($parent, 'filterBags') ? $parent->filterBags() : $config->get('laraconfig.default', 'users')
+            method_exists($parent, 'filterBags') ? $parent->filterBags() : $config->get('multiconfig.default', 'users')
         );
     }
 
