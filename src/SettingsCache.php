@@ -136,27 +136,27 @@ class SettingsCache implements Serializable
         $this->settings->regeneratesOnExit = $this->automaticRegeneration;
     }
 
-    /**
-     * representation of object.
-     *
-     * @return array
-     */
-    public function __serialize(): array
-    {
-        return []; // Do not serialize this.
-    }
+    // /**
+    //  * representation of object.
+    //  *
+    //  * @return array
+    //  */
+    // public function __serialize(): array
+    // {
+    //     return []; // Do not serialize this.
+    // }
 
-    /**
-     * Constructs the object.
-     *
-     * @param  string  $data
-     *
-     * @return void
-     */
-    public function __unserialize($data): void
-    {
-        // Don't unserialize from anything.
-    }
+    // /**
+    //  * Constructs the object.
+    //  *
+    //  * @param  string  $data
+    //  *
+    //  * @return void
+    //  */
+    // public function __unserialize($data): void
+    // {
+    //     // Don't unserialize from anything.
+    // }
 
     /**
      * String representation of object.
