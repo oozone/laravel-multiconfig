@@ -13,7 +13,7 @@ jobs:
       matrix:
         php: ["8.0",8.1,8.2]
         laravel: [^8.43,^9,^10]
-        dependency-version: [prefer-lowest, prefer-stable]
+        dependency-version: [prefer-stable]
         exclude:
           - php: "8.0"
             laravel: ^10
