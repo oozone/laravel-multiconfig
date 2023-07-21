@@ -1,16 +1,16 @@
-This package has been archived.
+This is an update for the currently archived [DarkGhostHunter/Laraconfig](https://github.com/DarkGhostHunter/Laraconfig) which will be maintained going forward.
 
-Sorry guys and gals, I bit more than I can chew and I'm currently not using this package to justify its support.
-
-I may revisit this in the near future.
+We will investigate adding new features shortly for our projects but it should mostly be the same.
 
 ---
 
 ![Xavier von Erlach - Unsplash #ooR1jY2yFr4](https://images.unsplash.com/photo-1570221622224-3bb8f08f166c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=400&q=80)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/darkghosthunter/laraconfig.svg)](https://packagist.org/packages/darkghosthunter/laraconfig) [![License](https://poser.pugx.org/darkghosthunter/laraconfig/license)](https://packagist.org/packages/darkghosthunter/laraconfig) ![](https://img.shields.io/packagist/php-v/darkghosthunter/laraconfig.svg) ![](https://github.com/DarkGhostHunter/Laraconfig/workflows/PHP%20Composer/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/DarkGhostHunter/Laraconfig/badge.svg?branch=master)](https://coveralls.io/github/DarkGhostHunter/Laraconfig?branch=master) [![Laravel Octane Compatible](https://img.shields.io/badge/Laravel%20Octane-Compatible-success?style=flat&logo=laravel)](https://github.com/laravel/octane)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/synergitech/multiconfig.svg)](https://packagist.org/packages/synergitech/multiconfig)
+[![License](https://poser.pugx.org/synergitech/multiconfig/license)](https://packagist.org/packages/synergitech/multiconfig)
+[![Tests](https://github.com/SynergiTech/laravel-multiconfig/actions/workflows/tests.yml/badge.svg)](https://github.com/SynergiTech/laravel-multiconfig/actions/workflows/tests.yml)
 
-# Laraconfig
+# Multiconfig
 
 Per-user settings repository system for Laravel.
 
@@ -22,26 +22,26 @@ User::find(1)->settings->set('color', 'red');
 
 ## Requirements
 
-- Laravel 8.x
+- Laravel 8.x or later
 - PHP 8.0 or later
 
 ## How it works
 
-Laraconfig works extending Laravel relations, and includes a migration system to easily manage them. 
+Multiconfig works extending Laravel relations, and includes a migration system to easily manage them.
 
 Each Setting is just a value, and references a parent "metadata" that contains the information like the type and name, while being linked to a user.
 
-Since Laraconfig uses the Eloquent ORM behind the scenes, getting a one or all settings is totally transparent to the developer.
+Since Multiconfig uses the Eloquent ORM behind the scenes, getting a one or all settings is totally transparent to the developer.
 
 ## Quickstart
 
 You can install the package via composer.
 
-    composer require darkghosthunter/laraconfig
+    composer require synergitech/multiconfig
 
 First, publish and run the migrations. These will add two tables called `user_settings` and `user_settings_metadata`. One holds the values per user, the other the metadata of the setting, respectively.
 
-    php artisan vendor:publish --provider="DarkGhostHunter\Laraconfig\LaraconfigServiceProvider" --tag="migrations"
+    php artisan vendor:publish --provider="SynergiTech\Multiconfig\MulticonfigServiceProvider" --tag="migrations"
     php artisan migrate
 
 > The migration uses a morph column to connect to the User. You can change it before migrating.
@@ -52,12 +52,12 @@ Second, add the `HasConfig` trait to the User models you want to have settings.
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use DarkGhostHunter\Laraconfig\HasConfig;
+use SynergiTech\Multiconfig\HasConfig;
 
 class User extends Authenticatable
 {
     use HasConfig;
-    
+
     // ...
 }
 ```
@@ -70,10 +70,10 @@ Now, let's create some settings.
 
 ## Settings Manifest
 
-Laraconfig makes managing user settings globally using a _manifest_ of sorts, the `settings/users.php` file. You will see a sample setting already written.
+Multiconfig makes managing user settings globally using a _manifest_ of sorts, the `settings/users.php` file. You will see a sample setting already written.
 
 ```php
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Facades\Setting;
 
 Setting::name('color')->string();
 ```
@@ -83,12 +83,12 @@ Setting::name('color')->string();
 To create a setting, use the `Setting` facade. You can start with setting the name, which must be unique, and then declare the type.
 
 ```php
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Facades\Setting;
 
 Setting::name('dark_mode')->boolean();
 ```
 
-Laraconfig is compatible with 7 types of settings, mirroring their PHP native types, along the Collection and Datetime (Carbon) objects. 
+Multiconfig is compatible with 7 types of settings, mirroring their PHP native types, along the Collection and Datetime (Carbon) objects.
 
 * `array()`
 * `boolean()`
@@ -98,14 +98,14 @@ Laraconfig is compatible with 7 types of settings, mirroring their PHP native ty
 * `integer()`
 * `string()`
 
-> Arrays and Collections are serialized in the database as JSON. 
+> Arrays and Collections are serialized in the database as JSON.
 
 ### Default value
 
 All settings have a default value of `null`, but you can use the `default()` method to set a different initial value.
 
 ```php
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Facades\Setting;
 
 Setting::name('color')->string()->default('black');
 ```
@@ -132,7 +132,7 @@ Setting::name('color')->group('theme');
 
 ### Bag
 
-When Laraconfig migrates the new settings, these are created to all models. You can filter a given set of settings through "bags". 
+When Multiconfig migrates the new settings, these are created to all models. You can filter a given set of settings through "bags".
 
 By default, all settings are created under the `users` bag, but you can change the default bag for anything using the `bag()` method.
 
@@ -147,38 +147,38 @@ Later, in your model, you can filter the bags you want to work with using [`filt
 
 ## Migrating settings
 
-Once you're done creating your settings, you should use `settings:migrate` to let Laraconfig add the settings metadata to your database.
+Once you're done creating your settings, you should use `settings:migrate` to let Multiconfig add the settings metadata to your database.
 
     php artisan settings:migrate
 
-Behind the scenes, Laraconfig will look into your Models for those using the `HasConfig` trait, and populate the settings accordingly using the information on the manifest.
+Behind the scenes, Multiconfig will look into your Models for those using the `HasConfig` trait, and populate the settings accordingly using the information on the manifest.
 
 > Migration run only _forward_. There is no way to revert a migration once done. On production, removing settings needs confirmation.
 
 ### Adding new settings
 
-Simply create a new setting and run `settings:migrate`. Existing settings won't be created again, as Laraconfig will check their existence before doing it.
+Simply create a new setting and run `settings:migrate`. Existing settings won't be created again, as Multiconfig will check their existence before doing it.
 
 ```php
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Facades\Setting;
 
 Setting::name('color')->string()->default('black');
 
-// This new setting will be created 
+// This new setting will be created
 Setting::name('notifications')->boolean()->default(true);
 ```
 
 ### Removing old settings
 
-To remove old settings, simply remove their declaration and run `settings:migrate`. Laraconfig compares the settings declared to the ones created in the database, and removes those that no longer exist in the manifest at the end of the migration execution.
+To remove old settings, simply remove their declaration and run `settings:migrate`. Multiconfig compares the settings declared to the ones created in the database, and removes those that no longer exist in the manifest at the end of the migration execution.
 
 ```php
-use DarkGhostHunter\Laraconfig\Facades\Setting;
+use SynergiTech\Multiconfig\Facades\Setting;
 
 // Commenting this line will remove the "color" setting on migration.
 // Setting::name('color')->string()->default('black');
 
-// This new setting will be created 
+// This new setting will be created
 Setting::name('notifications')->boolean()->default(true);
 ```
 
@@ -186,7 +186,7 @@ Setting::name('notifications')->boolean()->default(true);
 
 ### Upgrading settings
 
-You don't need to get directly into the database to update a setting. Instead, just change the setting properties directly in the manifest. Laraconfig will update the metadata accordingly.
+You don't need to get directly into the database to update a setting. Instead, just change the setting properties directly in the manifest. Multiconfig will update the metadata accordingly.
 
 Let's say we have a "color" setting we wish to update from a string to an array of colors, with a default and a group.
 
@@ -200,7 +200,7 @@ Setting::name('color')->string()->bag('theme');
 //    ->group('theme');
 ```
 
-Laraconfig will detect the new changes, and update the metadata keeping the users value intact.
+Multiconfig will detect the new changes, and update the metadata keeping the users value intact.
 
 ```php
 // This is the old declaration.
@@ -226,7 +226,7 @@ Setting::name('color')
 
 > The `using()` method only runs if the setting is different from before at migration time.
 
-Behind the scenes, Laraconfig will look for the "color" setting, update the metadata, and then use a [`lazy()` query](https://laravel.com/docs/queries#streaming-results-lazily) to update the value with the callback.
+Behind the scenes, Multiconfig will look for the "color" setting, update the metadata, and then use a [`lazy()` query](https://laravel.com/docs/queries#streaming-results-lazily) to update the value with the callback.
 
 > Consider migrating directly on the database if you have hundreds of thousands of records, as this procedure is safer but slower than a direct SQL statement.
 
@@ -251,11 +251,11 @@ Setting::name('dark')
 
 > The `from` and `using` are executed only if the old setting exists at migration time.
 
-Behind the scenes, Laraconfig creates the new "theme" setting first, and then looks for the old "color" setting in the database to translate the old values to the new ones. Since the old setting is not present in the manifest, it will be deleted from the database.
+Behind the scenes, Multiconfig creates the new "theme" setting first, and then looks for the old "color" setting in the database to translate the old values to the new ones. Since the old setting is not present in the manifest, it will be deleted from the database.
 
 ## Managing Settings
 
-Laraconfig handles settings like any [Eloquent Morph-Many Relationship](https://laravel.com/docs/eloquent-relationships#one-to-many-polymorphic-relations), but supercharged. 
+Multiconfig handles settings like any [Eloquent Morph-Many Relationship](https://laravel.com/docs/eloquent-relationships#one-to-many-polymorphic-relations), but supercharged.
 
 Just simply use the `settings` property on your model. This property is like your normal [Eloquent Collection](https://laravel.com/docs/eloquent-collections), so you have access to all its tools.
 
@@ -278,7 +278,7 @@ In case you want to handle initialization manually, you can use the `shouldIniti
 
 /**
  * Check if the user should initialize settings automatically after creation.
- * 
+ *
  * @return bool
  */
 protected function shouldInitializeConfig(): bool
@@ -395,7 +395,7 @@ When [using the cache](#cache), any change invalidates the cache immediately and
 
 ### Defaulting a Setting
 
-You can turn the setting back to the default value using `setDefault()` on both the setting instance or using the `settings` property. 
+You can turn the setting back to the default value using `setDefault()` on both the setting instance or using the `settings` property.
 
 ```php
 $setting = $user->settings->get('color');
@@ -428,14 +428,14 @@ $user->settings->disable('color');
 ```
 
 > A disabled setting can be still set. If you want to set a value only if it's enabled, use `setIfEnabled()`.
-> 
+>
 > ```php
 > $user->settings->setIfEnabled('color', 'red');
 > ```
 
 ## Setting Bags
 
-Laraconfig uses one single bag called `default`. If you have declared in the manifest [different sets of bags](#bag), you can make a model to use only a particular set of bags with the `filterBags()` method, that should return the bag name (or names).
+Multiconfig uses one single bag called `default`. If you have declared in the manifest [different sets of bags](#bag), you can make a model to use only a particular set of bags with the `filterBags()` method, that should return the bag name (or names).
 
 ```php
 // app/Models/User.php
@@ -444,16 +444,16 @@ i
 
 The above will apply a filter to the query when retrieving settings from the database. This makes easy to swap bags when a user has a different role or property, or programmatically.
 
-> **All** settings are created for all models with `HasConfig` trait, regardless of the bags used by the model. 
+> **All** settings are created for all models with `HasConfig` trait, regardless of the bags used by the model.
 
 #### Disabling the bag filter scope
 
-Laraconfig applies a query filter to exclude the settings not in the model bag. While this eases the development, sometimes you will want to work with the full set of settings available.
+Multiconfig applies a query filter to exclude the settings not in the model bag. While this eases the development, sometimes you will want to work with the full set of settings available.
 
 There are two ways to disable the bag filter. The first one is relatively easy: simply use the `withoutGlobalScope()` at query time, which will allow to query all the settings available to the user.
 
 ```php
-use DarkGhostHunter\Laraconfig\Eloquent\Scopes\FilterBags;
+use SynergiTech\Multiconfig\Eloquent\Scopes\FilterBags;
 
 $allSettings = $user->settings()->withoutGlobalScope(FilterBags::class)->get();
 ```
@@ -480,14 +480,14 @@ The cache implementation avoids data-races. It will regenerate the cache only fo
 
 ### Enabling the cache
 
-You can easily enable the cache using the `LARACONFIG_CACHE` environment variable set to `true`, and use a non-default cache store (like Redis) with `LARACONFIG_STORE`.
+You can easily enable the cache using the `MULTICONFIG_CACHE` environment variable set to `true`, and use a non-default cache store (like Redis) with `MULTICONFIG_STORE`.
 
 ```dotenv
-LARACONFIG_CACHE=true
-LARACONFIG_STORE=redis
+MULTICONFIG_CACHE=true
+MULTICONFIG_STORE=redis
 ```
 
-> Alternatively, check the `laraconfig.php` file to customize the cache TTL and prefix.
+> Alternatively, check the `multiconfig.php` file to customize the cache TTL and prefix.
 
 #### Managing the cache
 
@@ -515,11 +515,11 @@ $user->settings->regeneratesOnExit = true;
 
 If the [Cache is activated](#cache), the migration will invalidate the setting cache for each user after it completes.
 
-Depending on the Cache system, forgetting each cache key can be detrimental. Instead, you can use the `--flush-cache` command to flush the cache store used by Laraconfig, instead of deleting each key one by one.
+Depending on the Cache system, forgetting each cache key can be detrimental. Instead, you can use the `--flush-cache` command to flush the cache store used by Multiconfig, instead of deleting each key one by one.
 
     php artisan settings:migrate --flush-cache
 
-> Since this will delete all the data of the cache, is recommended to use an exclusive cache store for Laraconfig, like a separate Redis database.
+> Since this will delete all the data of the cache, is recommended to use an exclusive cache store for Multiconfig, like a separate Redis database.
 
 ## Validation
 
@@ -535,9 +535,9 @@ public function store(Request $request, User $user)
         'age' => 'required|numeric|min:14|max:100',
         'color' => 'required|string|in:red,green,blue'
     ]);
-    
+
     $user->settings->setIfEnabled($settings);
-    
+
     // ...
 }
 ```
@@ -556,11 +556,11 @@ public function test_user_has_settings(): void
         'bag'     => 'users',
         'group'   => 'default',
     ]);
-    
+
     $user = User::create([
         // ...
     ]);
-        
+
     // ...
 }
 ```

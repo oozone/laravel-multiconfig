@@ -4,12 +4,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Italo Baeza C.",
-            "email": "darkghosthunter@gmail.com"
-        }
-    ],
     "require": {
         "php": "^8.0",
         "illuminate/database": "^8.43|^9.0|^10.0",
