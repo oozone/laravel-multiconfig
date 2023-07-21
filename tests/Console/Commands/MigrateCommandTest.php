@@ -368,7 +368,7 @@ class MigrateCommandTest extends BaseTestCase
         $this->assertDatabaseHas('user_settings', [
             'id' => 1,
             'metadata_id' => 1,
-            'settable_type' => DummyModel::class,
+            'settable_type' => addcslashes(DummyModel::class, '\\'), // orchestras database substitute is weird
             'settable_id' => 1,
             'value' => '',
             'is_enabled' => true,
