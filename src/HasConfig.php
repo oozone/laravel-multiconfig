@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use function method_exists;
 
 /**
- * @property-read \SynergiTech\Multiconfig\SettingsCollection<\SynergiTech\Multiconfig\Eloquent\Setting>|\SynergiTech\Multiconfig\Eloquent\Setting[] $settings
+ * @property-read \SynergiTech\Multiconfig\SettingsCollection<int, \SynergiTech\Multiconfig\Eloquent\Setting> $settings
  *
  * @method \Illuminate\Database\Eloquent\Builder|static whereConfig(string|array $name, string $operator = null, $value = null, string $boolean = 'and')
  * @method \Illuminate\Database\Eloquent\Builder|static orWhereConfig(string|array $name, string $operator = null, $value = null)
