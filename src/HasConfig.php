@@ -1,13 +1,13 @@
 <?php
 
-namespace SynergiTech\Multiconfig;
+namespace Oozone\Multiconfig;
 
 use Illuminate\Database\Eloquent\Model;
 
 use function method_exists;
 
 /**
- * @property-read \SynergiTech\Multiconfig\SettingsCollection<int, \SynergiTech\Multiconfig\Eloquent\Setting> $settings
+ * @property-read \Oozone\Multiconfig\SettingsCollection<int, \Oozone\Multiconfig\Eloquent\Setting> $settings
  *
  * @method \Illuminate\Database\Eloquent\Builder|static whereConfig(string|array $name, string $operator = null, $value = null, string $boolean = 'and')
  * @method \Illuminate\Database\Eloquent\Builder|static orWhereConfig(string|array $name, string $operator = null, $value = null)
@@ -17,7 +17,7 @@ trait HasConfig
     /**
      * Returns the settings relationship.
      *
-     * @return \SynergiTech\Multiconfig\MorphManySettings
+     * @return \Oozone\Multiconfig\MorphManySettings
      */
     public function settings(): MorphManySettings
     {

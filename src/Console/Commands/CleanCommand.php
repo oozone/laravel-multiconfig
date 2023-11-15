@@ -1,8 +1,8 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Console\Commands;
+namespace Oozone\Multiconfig\Console\Commands;
 
-use SynergiTech\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\Eloquent\Setting;
 use Illuminate\Console\Command;
 
 /**

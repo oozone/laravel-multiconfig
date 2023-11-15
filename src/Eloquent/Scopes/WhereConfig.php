@@ -1,6 +1,6 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Eloquent\Scopes;
+namespace Oozone\Multiconfig\Eloquent\Scopes;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

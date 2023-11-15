@@ -1,11 +1,11 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator\Pipes;
+namespace Oozone\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use SynergiTech\Multiconfig\Multiconfig;
-use SynergiTech\Multiconfig\Migrator\Data;
-use SynergiTech\Multiconfig\MorphManySettings;
+use Oozone\Multiconfig\Multiconfig;
+use Oozone\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\MorphManySettings;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Config\Repository;
@@ -34,7 +34,7 @@ class InvalidateCache
     /**
      * Handles the Settings migration.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed
@@ -57,7 +57,7 @@ class InvalidateCache
     /**
      * Check if we should cycle through models to invalidate their keys.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      *
      * @return bool
      */

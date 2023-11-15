@@ -2,8 +2,8 @@
 
 namespace Tests\Console\Commands;
 
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Setting;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\BaseTestCase;

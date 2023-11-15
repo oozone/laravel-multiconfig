@@ -1,6 +1,6 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator;
+namespace Oozone\Multiconfig\Migrator;
 
 use Illuminate\Pipeline\Pipeline;
 

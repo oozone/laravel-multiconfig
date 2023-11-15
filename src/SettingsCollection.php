@@ -1,8 +1,8 @@
 <?php
 
-namespace SynergiTech\Multiconfig;
+namespace Oozone\Multiconfig;
 
-use SynergiTech\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\Eloquent\Setting;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
@@ -13,7 +13,7 @@ use RuntimeException;
 /**
  * Class SettingsCollection
  *
- * @package SynergiTech\Multiconfig
+ * @package Oozone\Multiconfig
  *
  * @method Setting get(string $name, mixed $default = null)
  */
@@ -29,7 +29,7 @@ class SettingsCollection extends Collection
      * is garbage collected. Once done, a `__destruct()` call will be fired, and
      * that is when we will make the cache store regenerate the settings there.
      *
-     * @var \SynergiTech\Multiconfig\SettingsCache|null
+     * @var \Oozone\Multiconfig\SettingsCache|null
      */
     public ?SettingsCache $cache = null;
 
@@ -43,7 +43,7 @@ class SettingsCollection extends Collection
     /**
      * Returns all the settings grouped by their group name.
      *
-     * @return static|\SynergiTech\Multiconfig\Eloquent\Setting[]
+     * @return static|\Oozone\Multiconfig\Eloquent\Setting[]
      */
     public function groups(): static
     {

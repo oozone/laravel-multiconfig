@@ -1,8 +1,8 @@
 <?php
 
-namespace SynergiTech\Multiconfig;
+namespace Oozone\Multiconfig;
 
-use SynergiTech\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Metadata;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
@@ -12,7 +12,7 @@ use Illuminate\Support\Arr;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Builder
- * @mixin \SynergiTech\Multiconfig\Eloquent\Setting
+ * @mixin \Oozone\Multiconfig\Eloquent\Setting
  *
  * @method Model|HasConfig getParent()
  */
@@ -28,7 +28,7 @@ class MorphManySettings extends MorphMany
     /**
      * The settings cache helper.
      *
-     * @var \SynergiTech\Multiconfig\SettingsCache|null
+     * @var \Oozone\Multiconfig\SettingsCache|null
      */
     protected ?SettingsCache $cache = null;
 

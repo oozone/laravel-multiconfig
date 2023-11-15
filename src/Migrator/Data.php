@@ -1,6 +1,6 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator;
+namespace Oozone\Multiconfig\Migrator;
 
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Collection;
@@ -13,14 +13,14 @@ class Data
     /**
      * Database Metadata.
      *
-     * @var \Illuminate\Database\Eloquent\Collection|\SynergiTech\Multiconfig\Eloquent\Metadata[]
+     * @var \Illuminate\Database\Eloquent\Collection|\Oozone\Multiconfig\Eloquent\Metadata[]
      */
     public EloquentCollection $metadata;
 
     /**
      * Declarations.
      *
-     * @var \Illuminate\Support\Collection|\SynergiTech\Multiconfig\Registrar\Declaration[]
+     * @var \Illuminate\Support\Collection|\Oozone\Multiconfig\Registrar\Declaration[]
      */
     public Collection $declarations;
 

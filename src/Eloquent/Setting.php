@@ -1,9 +1,9 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Eloquent;
+namespace Oozone\Multiconfig\Eloquent;
 
-use SynergiTech\Multiconfig\MorphManySettings;
-use SynergiTech\Multiconfig\SettingsCache;
+use Oozone\Multiconfig\MorphManySettings;
+use Oozone\Multiconfig\SettingsCache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property-read string $group // Added by the "add-metadata" global scope.
  * @property-read string $bag // Added by the "add-metadata" global scope.
  *
- * @property-read \SynergiTech\Multiconfig\Eloquent\Metadata $metadata
+ * @property-read \Oozone\Multiconfig\Eloquent\Metadata $metadata
  */
 class Setting extends Model
 {
@@ -68,7 +68,7 @@ class Setting extends Model
     /**
      * Settings cache repository.
      *
-     * @var \SynergiTech\Multiconfig\SettingsCache|null
+     * @var \Oozone\Multiconfig\SettingsCache|null
      */
     public ?SettingsCache $cache = null;
 
@@ -122,7 +122,7 @@ class Setting extends Model
     /**
      * Fills the settings data from a Metadata model instance.
      *
-     * @param  \SynergiTech\Multiconfig\Eloquent\Metadata  $metadata
+     * @param  \Oozone\Multiconfig\Eloquent\Metadata  $metadata
      *
      * @return $this
      */

@@ -1,10 +1,10 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator\Pipes;
+namespace Oozone\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use SynergiTech\Multiconfig\HasConfig;
-use SynergiTech\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\HasConfig;
+use Oozone\Multiconfig\Migrator\Data;
 use Generator;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Eloquent\Model;
@@ -35,7 +35,7 @@ class FindModelsWithSettings
     /**
      * Handles the Settings migration.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed

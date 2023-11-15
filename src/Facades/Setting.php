@@ -1,13 +1,13 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Facades;
+namespace Oozone\Multiconfig\Facades;
 
-use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
+use Oozone\Multiconfig\Registrar\SettingRegistrar;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Illuminate\Support\Collection|\SynergiTech\Multiconfig\Eloquent\Setting[] getSettings()
- * @method static \SynergiTech\Multiconfig\Registrar\Declaration name(string $name)
+ * @method static \Illuminate\Support\Collection|\Oozone\Multiconfig\Eloquent\Setting[] getSettings()
+ * @method static \Oozone\Multiconfig\Registrar\Declaration name(string $name)
  */
 class Setting extends Facade
 {

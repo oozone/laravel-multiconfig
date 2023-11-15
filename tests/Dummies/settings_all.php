@@ -1,6 +1,6 @@
 <?php
 
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Facades\Setting;
 
 Setting::name('array')->array();
 Setting::name('boolean')->boolean();

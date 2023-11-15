@@ -6,9 +6,9 @@ We will investigate adding new features shortly for our projects but it should m
 
 ![Xavier von Erlach - Unsplash #ooR1jY2yFr4](https://images.unsplash.com/photo-1570221622224-3bb8f08f166c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=400&q=80)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/synergitech/multiconfig.svg)](https://packagist.org/packages/synergitech/multiconfig)
-[![License](https://poser.pugx.org/synergitech/multiconfig/license)](https://packagist.org/packages/synergitech/multiconfig)
-[![Tests](https://github.com/SynergiTech/laravel-multiconfig/actions/workflows/tests.yml/badge.svg)](https://github.com/SynergiTech/laravel-multiconfig/actions/workflows/tests.yml)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/oozone/multiconfig.svg)](https://packagist.org/packages/oozone/multiconfig)
+[![License](https://poser.pugx.org/oozone/multiconfig/license)](https://packagist.org/packages/oozone/multiconfig)
+[![Tests](https://github.com/Oozone/laravel-multiconfig/actions/workflows/tests.yml/badge.svg)](https://github.com/Oozone/laravel-multiconfig/actions/workflows/tests.yml)
 
 # Multiconfig
 
@@ -37,11 +37,11 @@ Since Multiconfig uses the Eloquent ORM behind the scenes, getting a one or all 
 
 You can install the package via composer.
 
-    composer require synergitech/multiconfig
+    composer require oozone/multiconfig
 
 First, publish and run the migrations. These will add two tables called `user_settings` and `user_settings_metadata`. One holds the values per user, the other the metadata of the setting, respectively.
 
-    php artisan vendor:publish --provider="SynergiTech\Multiconfig\MulticonfigServiceProvider" --tag="migrations"
+    php artisan vendor:publish --provider="Oozone\Multiconfig\MulticonfigServiceProvider" --tag="migrations"
     php artisan migrate
 
 > The migration uses a morph column to connect to the User. You can change it before migrating.
@@ -52,7 +52,7 @@ Second, add the `HasConfig` trait to the User models you want to have settings.
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use SynergiTech\Multiconfig\HasConfig;
+use Oozone\Multiconfig\HasConfig;
 
 class User extends Authenticatable
 {
@@ -73,7 +73,7 @@ Now, let's create some settings.
 Multiconfig makes managing user settings globally using a _manifest_ of sorts, the `settings/users.php` file. You will see a sample setting already written.
 
 ```php
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Facades\Setting;
 
 Setting::name('color')->string();
 ```
@@ -83,7 +83,7 @@ Setting::name('color')->string();
 To create a setting, use the `Setting` facade. You can start with setting the name, which must be unique, and then declare the type.
 
 ```php
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Facades\Setting;
 
 Setting::name('dark_mode')->boolean();
 ```
@@ -105,7 +105,7 @@ Multiconfig is compatible with 7 types of settings, mirroring their PHP native t
 All settings have a default value of `null`, but you can use the `default()` method to set a different initial value.
 
 ```php
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Facades\Setting;
 
 Setting::name('color')->string()->default('black');
 ```
@@ -160,7 +160,7 @@ Behind the scenes, Multiconfig will look into your Models for those using the `H
 Simply create a new setting and run `settings:migrate`. Existing settings won't be created again, as Multiconfig will check their existence before doing it.
 
 ```php
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Facades\Setting;
 
 Setting::name('color')->string()->default('black');
 
@@ -173,7 +173,7 @@ Setting::name('notifications')->boolean()->default(true);
 To remove old settings, simply remove their declaration and run `settings:migrate`. Multiconfig compares the settings declared to the ones created in the database, and removes those that no longer exist in the manifest at the end of the migration execution.
 
 ```php
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Facades\Setting;
 
 // Commenting this line will remove the "color" setting on migration.
 // Setting::name('color')->string()->default('black');
@@ -453,7 +453,7 @@ Multiconfig applies a query filter to exclude the settings not in the model bag.
 There are two ways to disable the bag filter. The first one is relatively easy: simply use the `withoutGlobalScope()` at query time, which will allow to query all the settings available to the user.
 
 ```php
-use SynergiTech\Multiconfig\Eloquent\Scopes\FilterBags;
+use Oozone\Multiconfig\Eloquent\Scopes\FilterBags;
 
 $allSettings = $user->settings()->withoutGlobalScope(FilterBags::class)->get();
 ```

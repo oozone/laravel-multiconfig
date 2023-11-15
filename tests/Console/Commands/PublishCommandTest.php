@@ -2,11 +2,11 @@
 
 namespace Tests\Console\Commands;
 
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Eloquent\Setting as SettingModel;
-use SynergiTech\Multiconfig\Facades\Setting;
-use SynergiTech\Multiconfig\Migrator\Data;
-use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Setting as SettingModel;
+use Oozone\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Registrar\SettingRegistrar;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Database\Eloquent\Model;

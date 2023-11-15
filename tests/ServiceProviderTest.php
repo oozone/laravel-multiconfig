@@ -2,9 +2,9 @@
 
 namespace Tests;
 
-use SynergiTech\Multiconfig\Facades\Setting;
-use SynergiTech\Multiconfig\MulticonfigServiceProvider;
-use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
+use Oozone\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\MulticonfigServiceProvider;
+use Oozone\Multiconfig\Registrar\SettingRegistrar;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use SplFileInfo;
@@ -41,7 +41,7 @@ class ServiceProviderTest extends BaseTestCase
         $this->artisan(
             'vendor:publish',
             [
-                '--provider' => 'SynergiTech\Multiconfig\MulticonfigServiceProvider',
+                '--provider' => 'Oozone\Multiconfig\MulticonfigServiceProvider',
                 '--tag' => 'config',
             ]
         )->execute();
@@ -56,7 +56,7 @@ class ServiceProviderTest extends BaseTestCase
         $this->artisan(
             'vendor:publish',
             [
-                '--provider' => 'SynergiTech\Multiconfig\MulticonfigServiceProvider',
+                '--provider' => 'Oozone\Multiconfig\MulticonfigServiceProvider',
                 '--tag' => 'migrations',
             ]
         )->run();

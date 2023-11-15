@@ -1,10 +1,10 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator\Pipes;
+namespace Oozone\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use SynergiTech\Multiconfig\Migrator\Data;
-use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
+use Oozone\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Registrar\SettingRegistrar;
 
 /**
  * @internal
@@ -14,7 +14,7 @@ class LoadDeclarations
     /**
      * LoadDeclarations constructor.
      *
-     * @param  \SynergiTech\Multiconfig\Registrar\SettingRegistrar  $registrar
+     * @param  \Oozone\Multiconfig\Registrar\SettingRegistrar  $registrar
      */
     public function __construct(protected SettingRegistrar $registrar)
     {
@@ -23,7 +23,7 @@ class LoadDeclarations
     /**
      * Handles the Settings migration.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed

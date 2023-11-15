@@ -2,11 +2,11 @@
 
 namespace Tests;
 
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Eloquent\Scopes\FilterBags;
-use SynergiTech\Multiconfig\Eloquent\Setting;
-use SynergiTech\Multiconfig\HasConfig;
-use SynergiTech\Multiconfig\SettingsCollection;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Scopes\FilterBags;
+use Oozone\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\HasConfig;
+use Oozone\Multiconfig\SettingsCollection;
 use Error;
 use Exception;
 use Illuminate\Contracts\Cache\Factory;
@@ -181,7 +181,7 @@ class HasConfigTest extends BaseTestCase
 
     public function test_model_sets_config_not_forcefully(): void
     {
-        /** @var \SynergiTech\Multiconfig\HasConfig $user */
+        /** @var \Oozone\Multiconfig\HasConfig $user */
         $user = DummyModel::find(1);
 
         $user->settings->disable('foo');
@@ -386,7 +386,7 @@ class HasConfigTest extends BaseTestCase
             }
         };
 
-        /** @var \SynergiTech\Multiconfig\HasConfig $instance */
+        /** @var \Oozone\Multiconfig\HasConfig $instance */
         $instance = $model->forceCreate([
             'name'     => 'dummy',
             'email'    => 'dummy@email.com',
@@ -409,7 +409,7 @@ class HasConfigTest extends BaseTestCase
 
     public function test_sets_default_from_database(): void
     {
-        /** @var \SynergiTech\Multiconfig\Eloquent\Setting $setting */
+        /** @var \Oozone\Multiconfig\Eloquent\Setting $setting */
         $setting = Setting::find(1);
 
         $setting->setRawAttributes(['default' => null])->syncOriginal();

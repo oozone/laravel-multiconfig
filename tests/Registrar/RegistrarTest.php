@@ -2,8 +2,8 @@
 
 namespace Tests\Registrar;
 
-use SynergiTech\Multiconfig\Facades\Setting;
-use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
+use Oozone\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Registrar\SettingRegistrar;
 use Illuminate\Support\Collection;
 use Tests\BaseTestCase;
 

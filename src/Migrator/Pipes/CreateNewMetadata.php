@@ -1,12 +1,12 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator\Pipes;
+namespace Oozone\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Eloquent\Setting;
-use SynergiTech\Multiconfig\Migrator\Data;
-use SynergiTech\Multiconfig\Registrar\Declaration;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Registrar\Declaration;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -30,7 +30,7 @@ class CreateNewMetadata
     /**
      * Handles the Settings migration.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed
@@ -66,9 +66,9 @@ class CreateNewMetadata
     /**
      * Creates the metadata from the declaration.
      *
-     * @param  \SynergiTech\Multiconfig\Registrar\Declaration  $declaration
+     * @param  \Oozone\Multiconfig\Registrar\Declaration  $declaration
      *
-     * @return \SynergiTech\Multiconfig\Eloquent\Metadata
+     * @return \Oozone\Multiconfig\Eloquent\Metadata
      */
     protected function createMetadata(Declaration $declaration): Metadata
     {
@@ -78,7 +78,7 @@ class CreateNewMetadata
     /**
      * Returns a collection of declarations that don't exist in the database.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      *
      * @return \Illuminate\Support\Collection
      */
@@ -92,10 +92,10 @@ class CreateNewMetadata
     /**
      * Fill the settings of the newly created Metadata.
      *
-     * @param  \SynergiTech\Multiconfig\Registrar\Declaration  $declaration
-     * @param  \SynergiTech\Multiconfig\Eloquent\Metadata  $metadata
+     * @param  \Oozone\Multiconfig\Registrar\Declaration  $declaration
+     * @param  \Oozone\Multiconfig\Eloquent\Metadata  $metadata
      * @param  \Illuminate\Support\Collection  $models
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      *
      * @return int
      */
@@ -131,7 +131,7 @@ class CreateNewMetadata
     /**
      * Fill the settings for each of the models using settings.
      *
-     * @param  \SynergiTech\Multiconfig\Eloquent\Metadata  $metadata
+     * @param  \Oozone\Multiconfig\Eloquent\Metadata  $metadata
      * @param  \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model[]  $models
      *
      * @return int
@@ -164,8 +164,8 @@ class CreateNewMetadata
     /**
      * Copy the settings for each of the models from the old setting.
      *
-     * @param  \SynergiTech\Multiconfig\Eloquent\Metadata  $new
-     * @param  \SynergiTech\Multiconfig\Eloquent\Metadata  $old
+     * @param  \Oozone\Multiconfig\Eloquent\Metadata  $new
+     * @param  \Oozone\Multiconfig\Eloquent\Metadata  $old
      *
      * @return int
      */
@@ -190,9 +190,9 @@ class CreateNewMetadata
     /**
      * Feeds each old setting to a procedure that saves the new setting value.
      *
-     * @param  \SynergiTech\Multiconfig\Registrar\Declaration  $declaration
-     * @param  \SynergiTech\Multiconfig\Eloquent\Metadata  $new
-     * @param  \SynergiTech\Multiconfig\Eloquent\Metadata  $old
+     * @param  \Oozone\Multiconfig\Registrar\Declaration  $declaration
+     * @param  \Oozone\Multiconfig\Eloquent\Metadata  $new
+     * @param  \Oozone\Multiconfig\Eloquent\Metadata  $old
      *
      * @return int
      */
@@ -200,7 +200,7 @@ class CreateNewMetadata
     {
         $affected = 0;
 
-        /** @var \SynergiTech\Multiconfig\Eloquent\Setting $setting */
+        /** @var \Oozone\Multiconfig\Eloquent\Setting $setting */
         foreach (Setting::query()->where('metadata_id', $old->getKey())->lazyById() as $setting) {
             Setting::query()
                 ->insert([

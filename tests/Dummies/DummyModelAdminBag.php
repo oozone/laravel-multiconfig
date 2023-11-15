@@ -2,7 +2,7 @@
 
 namespace Tests\Dummies;
 
-use SynergiTech\Multiconfig\HasConfig;
+use Oozone\Multiconfig\HasConfig;
 use Illuminate\Database\Eloquent\Model;
 
 class DummyModelAdminBag extends Model

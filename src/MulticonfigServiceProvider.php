@@ -1,8 +1,8 @@
 <?php
 
-namespace SynergiTech\Multiconfig;
+namespace Oozone\Multiconfig;
 
-use SynergiTech\Multiconfig\Registrar\SettingRegistrar;
+use Oozone\Multiconfig\Registrar\SettingRegistrar;
 use Generator;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;

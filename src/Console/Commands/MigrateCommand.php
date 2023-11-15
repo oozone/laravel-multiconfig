@@ -1,9 +1,9 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Console\Commands;
+namespace Oozone\Multiconfig\Console\Commands;
 
-use SynergiTech\Multiconfig\Migrator\Data;
-use SynergiTech\Multiconfig\Migrator\Migrator;
+use Oozone\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Migrator\Migrator;
 use Illuminate\Console\Command;
 use Illuminate\Console\OutputStyle;
 use RuntimeException;
@@ -34,8 +34,8 @@ class MigrateCommand extends Command
     /**
      * MigrateCommand constructor.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Migrator  $migrator
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Migrator  $migrator
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      */
     public function __construct(protected Migrator $migrator, protected Data $data)
     {

@@ -1,10 +1,10 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator\Pipes;
+namespace Oozone\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Migrator\Data;
 
 /**
  * @internal
@@ -14,7 +14,7 @@ class LoadMetadata
     /**
      * Handles the Settings migration.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed

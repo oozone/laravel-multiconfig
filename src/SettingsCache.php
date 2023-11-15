@@ -1,6 +1,6 @@
 <?php
 
-namespace SynergiTech\Multiconfig;
+namespace Oozone\Multiconfig;
 
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Cache\Repository;
@@ -15,7 +15,7 @@ class SettingsCache implements Serializable
     /**
      * The collection of settings to persist.
      *
-     * @var \SynergiTech\Multiconfig\SettingsCollection|null
+     * @var \Oozone\Multiconfig\SettingsCollection|null
      */
     protected ?SettingsCollection $settings = null;
 
@@ -45,9 +45,9 @@ class SettingsCache implements Serializable
     /**
      * Set the settings collection to persist.
      *
-     * @param  \SynergiTech\Multiconfig\SettingsCollection  $settings
+     * @param  \Oozone\Multiconfig\SettingsCollection  $settings
      *
-     * @return \SynergiTech\Multiconfig\SettingsCache
+     * @return \Oozone\Multiconfig\SettingsCache
      */
     public function setSettings(SettingsCollection $settings): static
     {

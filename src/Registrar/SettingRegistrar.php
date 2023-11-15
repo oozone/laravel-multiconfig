@@ -1,6 +1,6 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Registrar;
+namespace Oozone\Multiconfig\Registrar;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
@@ -85,7 +85,7 @@ class SettingRegistrar
     /**
      * Returns a collection of declaration that migrates to another.
      *
-     * @return \Illuminate\Support\Collection|\SynergiTech\Multiconfig\Registrar\Declaration[]
+     * @return \Illuminate\Support\Collection|\Oozone\Multiconfig\Registrar\Declaration[]
      */
     public function getMigrable(): Collection
     {
@@ -98,7 +98,7 @@ class SettingRegistrar
      *
      * @param  string  $name
      *
-     * @return \SynergiTech\Multiconfig\Registrar\Declaration
+     * @return \Oozone\Multiconfig\Registrar\Declaration
      */
     public function name(string $name): Declaration
     {

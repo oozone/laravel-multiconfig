@@ -2,10 +2,10 @@
 
 namespace Tests\Eloquent\Scopes;
 
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Eloquent\Scopes\AddMetadata;
-use SynergiTech\Multiconfig\Eloquent\Setting;
-use SynergiTech\Multiconfig\HasConfig;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Scopes\AddMetadata;
+use Oozone\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\HasConfig;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;

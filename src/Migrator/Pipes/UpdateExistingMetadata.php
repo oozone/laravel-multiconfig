@@ -1,12 +1,12 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator\Pipes;
+namespace Oozone\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Eloquent\Setting;
-use SynergiTech\Multiconfig\Migrator\Data;
-use SynergiTech\Multiconfig\Registrar\Declaration;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Registrar\Declaration;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\Collection;
 
@@ -27,7 +27,7 @@ class UpdateExistingMetadata
     /**
      * Handles the Settings migration.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed
@@ -55,9 +55,9 @@ class UpdateExistingMetadata
     /**
      * Returns a collection of metadata that is already present in the.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      *
-     * @return \Illuminate\Support\Collection|\SynergiTech\Multiconfig\Registrar\Declaration[]
+     * @return \Illuminate\Support\Collection|\Oozone\Multiconfig\Registrar\Declaration[]
      */
     protected function getUpdatableMetadata(Data $data): Collection
     {
@@ -65,7 +65,7 @@ class UpdateExistingMetadata
         // equal to them. If it doesn't exists, it must be created, and if it's equal
         // to the original metadata, no changes should be made to it.
         return $data->declarations->filter(static function (Declaration $declaration) use ($data): bool {
-            /** @var \SynergiTech\Multiconfig\Eloquent\Metadata $metadata */
+            /** @var \Oozone\Multiconfig\Eloquent\Metadata $metadata */
             if ($metadata = $data->metadata->get($declaration->name)) {
                 $placeholder = $declaration->toMetadata();
 
@@ -80,14 +80,14 @@ class UpdateExistingMetadata
     /**
      * Updates each existing metadata from its declaration of the same name.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
-     * @param  \SynergiTech\Multiconfig\Registrar\Declaration  $declaration
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Registrar\Declaration  $declaration
      *
      * @return int
      */
     protected function updateMetadata(Data $data, Declaration $declaration): int
     {
-        /** @var \SynergiTech\Multiconfig\Eloquent\Metadata $metadata */
+        /** @var \Oozone\Multiconfig\Eloquent\Metadata $metadata */
         $metadata = $data->metadata->get($declaration->name);
 
         $metadata->forceFill([
@@ -113,8 +113,8 @@ class UpdateExistingMetadata
     /**
      * Update each child setting (of each user) using the declaration procedure.
      *
-     * @param  \SynergiTech\Multiconfig\Registrar\Declaration  $declaration
-     * @param  \SynergiTech\Multiconfig\Eloquent\Metadata  $metadata
+     * @param  \Oozone\Multiconfig\Registrar\Declaration  $declaration
+     * @param  \Oozone\Multiconfig\Eloquent\Metadata  $metadata
      *
      * @return int
      */

@@ -2,8 +2,8 @@
 
 namespace Tests\Migrator\Pipes;
 
-use SynergiTech\Multiconfig\Migrator\Data;
-use SynergiTech\Multiconfig\Migrator\Pipes\FindModelsWithSettings;
+use Oozone\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Migrator\Pipes\FindModelsWithSettings;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
@@ -28,7 +28,7 @@ class FindModelsWithSettingsTest extends BaseTestCase
 
 namespace App;
 
-use SynergiTech\Multiconfig\HasConfig;
+use Oozone\Multiconfig\HasConfig;
 use Illuminate\Database\Eloquent\Model;
 
 class Quz extends Model
@@ -56,7 +56,7 @@ CONTENT
 
 namespace App;
 
-use SynergiTech\Multiconfig\HasConfig;
+use Oozone\Multiconfig\HasConfig;
 
 trait TraitOfTrait
 {
@@ -133,7 +133,7 @@ CONTENT
 
 namespace App\Models;
 
-use SynergiTech\Multiconfig\HasConfig;
+use Oozone\Multiconfig\HasConfig;
 use Illuminate\Database\Eloquent\Model;
 
 class Foo extends Model
@@ -172,7 +172,7 @@ CONTENT
 
 namespace App;
 
-use SynergiTech\Multiconfig\HasConfig;
+use Oozone\Multiconfig\HasConfig;
 
 class NormalClass
 {

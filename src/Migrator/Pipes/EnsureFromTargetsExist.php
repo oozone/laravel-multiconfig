@@ -1,9 +1,9 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator\Pipes;
+namespace Oozone\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use SynergiTech\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Migrator\Data;
 use RuntimeException;
 
 /**
@@ -14,7 +14,7 @@ class EnsureFromTargetsExist
     /**
      * Handles the Settings migration.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed

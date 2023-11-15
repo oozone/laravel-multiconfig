@@ -1,9 +1,9 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Registrar;
+namespace Oozone\Multiconfig\Registrar;
 
 use Closure;
-use SynergiTech\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Metadata;
 
 class Declaration
 {
@@ -240,7 +240,7 @@ class Declaration
     /**
      * Transforms the Declaration to a Metadata Model.
      *
-     * @return \SynergiTech\Multiconfig\Eloquent\Metadata
+     * @return \Oozone\Multiconfig\Eloquent\Metadata
      */
     public function toMetadata(): Metadata
     {

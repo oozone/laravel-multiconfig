@@ -1,9 +1,9 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Eloquent\Casts;
+namespace Oozone\Multiconfig\Eloquent\Casts;
 
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Setting;
 use DateTimeInterface;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Arr;
@@ -18,7 +18,7 @@ class DynamicCasting implements CastsAttributes
     /**
      * Transform the attribute from the underlying model values.
      *
-     * @param  \SynergiTech\Multiconfig\Eloquent\Setting|\SynergiTech\Multiconfig\Eloquent\Metadata  $model
+     * @param  \Oozone\Multiconfig\Eloquent\Setting|\Oozone\Multiconfig\Eloquent\Metadata  $model
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
@@ -54,7 +54,7 @@ class DynamicCasting implements CastsAttributes
     /**
      * Transform the attribute to its underlying model values.
      *
-     * @param  \SynergiTech\Multiconfig\Eloquent\Setting|\SynergiTech\Multiconfig\Eloquent\Metadata  $model
+     * @param  \Oozone\Multiconfig\Eloquent\Setting|\Oozone\Multiconfig\Eloquent\Metadata  $model
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes

@@ -1,5 +1,5 @@
 {
-    "name": "synergitech/laravel-multiconfig",
+    "name": "oozone/laravel-multiconfig",
     "description": "Per-user settings repository system for Laravel",
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -25,16 +25,16 @@
     },
     "autoload": {
         "psr-4": {
-            "SynergiTech\\Multiconfig\\": "src"
+            "Oozone\\Multiconfig\\": "src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "SynergiTech\\Multiconfig\\MulticonfigServiceProvider"
+                "Oozone\\Multiconfig\\MulticonfigServiceProvider"
             ],
             "aliases": {
-                "Setting": "SynergiTech\\Multiconfig\\Facades\\Setting"
+                "Setting": "Oozone\\Multiconfig\\Facades\\Setting"
             }
         }
     },

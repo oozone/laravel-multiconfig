@@ -1,10 +1,10 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Migrator\Pipes;
+namespace Oozone\Multiconfig\Migrator\Pipes;
 
 use Closure;
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Migrator\Data;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Migrator\Data;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Foundation\Application;
 use RuntimeException;
@@ -32,7 +32,7 @@ class ConfirmSettingsToDelete
     /**
      * Handles the Settings migration.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      * @param  \Closure  $next
      *
      * @return mixed
@@ -49,7 +49,7 @@ class ConfirmSettingsToDelete
     /**
      * Returns if there is metadata to delete and the developer has rejected their deletion.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      *
      * @return bool
      */
@@ -67,7 +67,7 @@ class ConfirmSettingsToDelete
     /**
      * Counts metadata no longer listed in the manifest declarations.
      *
-     * @param  \SynergiTech\Multiconfig\Migrator\Data  $data
+     * @param  \Oozone\Multiconfig\Migrator\Data  $data
      *
      * @return int
      */

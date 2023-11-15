@@ -1,5 +1,5 @@
 <?php
 
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Facades\Setting;
 
 Setting::name('dark_mode')->boolean();

@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use SynergiTech\Multiconfig\MulticonfigServiceProvider;
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\MulticonfigServiceProvider;
+use Oozone\Multiconfig\Facades\Setting;
 
 trait RegistersPackage
 {

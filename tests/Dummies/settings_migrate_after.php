@@ -1,7 +1,7 @@
 <?php
 
-use SynergiTech\Multiconfig\Eloquent\Setting as Model;
-use SynergiTech\Multiconfig\Facades\Setting;
+use Oozone\Multiconfig\Eloquent\Setting as Model;
+use Oozone\Multiconfig\Facades\Setting;
 use Illuminate\Support\Arr;
 
 Setting::name('foo')->default('new_default');

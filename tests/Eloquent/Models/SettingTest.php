@@ -2,10 +2,10 @@
 
 namespace Tests\Eloquent\Models;
 
-use SynergiTech\Multiconfig\Eloquent\Metadata;
-use SynergiTech\Multiconfig\Eloquent\Scopes\AddMetadata;
-use SynergiTech\Multiconfig\Eloquent\Setting;
-use SynergiTech\Multiconfig\SettingsCache;
+use Oozone\Multiconfig\Eloquent\Metadata;
+use Oozone\Multiconfig\Eloquent\Scopes\AddMetadata;
+use Oozone\Multiconfig\Eloquent\Setting;
+use Oozone\Multiconfig\SettingsCache;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -52,7 +52,7 @@ class SettingTest extends BaseTestCase
 
     public function test_adds_metadata(): void
     {
-        /** @var \SynergiTech\Multiconfig\Eloquent\Setting $setting */
+        /** @var \Oozone\Multiconfig\Eloquent\Setting $setting */
         $setting = Setting::make()
             ->setRawAttributes(['value' => 'quz'])
             ->forceFill([

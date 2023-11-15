@@ -1,6 +1,6 @@
 <?php
 
-namespace SynergiTech\Multiconfig\Console\Commands;
+namespace Oozone\Multiconfig\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
